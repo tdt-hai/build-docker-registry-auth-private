@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  registry:
+        image: registry:2
+        restart: always
+        container_name: registry
+        expose:
+            - "5000"
+        ports:
+            - "5000:5000"
+        volumes:
+            - /registry:/registry #forder lưu image registry
+            - /zfsdata/certs:/certs
+        environment:
+            - REGISTRY_LOG_LEVEL=info
+            - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/registry
+            - REGISTRY_AUTH_TOKEN_REALM=https://<ip>:5001/auth
+            - REGISTRY_AUTH_TOKEN_SERVICE=Docker-registry
+            - REGISTRY_AUTH_TOKEN_ISSUER=pYqqk9h2A&LXu$U!  #option
+            - REGISTRY_AUTH_TOKEN_ROOTCERTBUNDLE=/certs/registry.pem
+            - REGISTRY_STORAGE_DELETE_ENABLED=true #option
