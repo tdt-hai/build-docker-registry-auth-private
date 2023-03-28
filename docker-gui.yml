@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+  dockergui:
+    image: quiq/docker-registry-ui
+    container_name: gui
+    volumes:
+      - /zfsdata/config/config.yml:/opt/config.yml:ro
+    networks:
+      - mynetwork
+
+  nginx:
+    image: lowstz/nginx-basic-auth-proxy
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - dockergui
+    environment:
+      - PROXY_PASS=http://dockergui
+      - BASIC_AUTH_USERNAME=admin
+      - BASIC_AUTH_PASSWORD=admin
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
