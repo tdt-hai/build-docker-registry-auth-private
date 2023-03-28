@@ -13,7 +13,7 @@ server:
   key: "/certs/registry.key"
 
 token:
-  issuer: "pYqqk9h2A&LXu$U!"  # Must match issuer in the Registry config.
+  issuer: "system"  # Must match issuer in the Registry config.
   expiration: 900
 
 users:

@@ -16,6 +16,6 @@ services:
             - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/registry
             - REGISTRY_AUTH_TOKEN_REALM=https://<ip>:5001/auth
             - REGISTRY_AUTH_TOKEN_SERVICE=Docker-registry
-            - REGISTRY_AUTH_TOKEN_ISSUER=pYqqk9h2A&LXu$U!  #option
+            - REGISTRY_AUTH_TOKEN_ISSUER=system  #option
             - REGISTRY_AUTH_TOKEN_ROOTCERTBUNDLE=/certs/registry.pem
             - REGISTRY_STORAGE_DELETE_ENABLED=true #option
