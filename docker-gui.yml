@@ -9,7 +9,7 @@ services:
       - mynetwork
 
   nginx:
-    image: lowstz/nginx-basic-auth-proxy
+    image: <image_build_local>
     container_name: nginx
     ports:
       - "80:80"
